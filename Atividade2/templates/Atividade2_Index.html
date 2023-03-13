@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Controle de Elevadores</title>
+  </head>
+  <body>
+    <h1>Controle de Elevadores</h1>
+    <hr>
+    <h2>Informações Coletadas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Elevador</th>
+          <th>Período</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for elevador in elevadores %}
+        <tr>
+          <td>{{ elevador.elevador }}</td>
+          <td>{{ elevador.periodo }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <hr>
+    <h2>Relatório</h2>
+    <p>O elevador mais utilizado é o {{ mais_utilizado }}.</p>
+    <p>O período mais utilizado é o {{ mais_utilizado_periodo }}.</p>
+    <p>O período menos utilizado é o {{ menos_utilizado_periodo }}.</p>
+    <p>A diferença percentual entre o período mais utilizado e o menos utilizado é de {{ diferenca_percentual }}%.</p>
+    <hr>
+    <h2>Atualizar Dados</h2>
+    {% if error %}
+    <p style="color:red">{{ error }}</p>
+    {% endif %}
+    <form action="{% url 'update_elevador' elevador.id %}" method="POST">
+      {% csrf_token %}
+      <p>
+        <label for="preferido">Elevador preferido:</label>
+        <select name="preferido" id="preferido">
+          <option value="A" {% if elevador.preferido == "A" %}selected{% endif %}>A</option>
+          <option value="B" {% if elevador.preferido == "B" %}selected{% endif %}>B</option>
+          <option value="C" {% if elevador.preferido == "C" %}selected{% endif %}>C</option>
+        </select>
+      </p>
+      <p>
+        <label for="periodo">Período:</label>
+        <select name="periodo" id="periodo">
+          <option value="Matutino" {% if elevador.periodo == "Matutino" %}selected{% endif %}>Matutino</option>
+          <option value="Vespetino" {% if elevador.periodo == "Vespetino" %}selected{% endif %}>Vespetino</option>
+          <option value="Noturno" {% if elevador.periodo == "Noturno" %}selected{% endif %}>Noturno</option>
+        </select>
+      </p>
+      <input type="submit" value="Atualizar">
+    </form>
+  </body>
+</html>

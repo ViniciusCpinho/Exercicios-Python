@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+        <form action="{% url 'Atividade1:postPagamento' %}" method="post">
+          {% csrf_token %}
+          <div style="display: flex; flex-direction: column; margin: 10px">
+              <label>Nome</label>
+              <input style="width: 300px;" type="text" name='nome'>
+          </div>
+          <div style="display: flex; flex-direction: column; margin: 10px;">
+              <label>Quantidade de horas trabalhadas no mês</label>
+              <input style="width: 300px;" type="text" name='quantidade_horas'>
+          </div>
+          <div style="display: flex; flex-direction: column; margin: 10px;">
+              <label for="turno">Turno de trabalho</label>
+              <select style='width: 307px;' name='turno'>
+                <option value='Matutino'>Matutino</option>
+                <option value='Vespetino'>Vespetino</option>
+                <option value='Noturno'>Noturno</option>
+              </select> 
+          </div> 
+          <div style='margin: 15px;'>
+              <label for="categoria">Categoria:</label>
+              <label for='gerente'>Gerente</label>
+              <input type="radio" name='categoria' id='gerente' value='Gerente'>
+              <label for='operario'>Operário</label>
+              <input type="radio" id='operario' name='categoria'  value='Operário'>
+          </div>
+          <input type="submit" value="Enviar" style='border: none; background-color: lightgray; width: 307px; padding: 10px; margin: 10px;'>
+      </form>
+
+    {% comment %} final modal region {% endcomment %}
+  </body>
+</html>
