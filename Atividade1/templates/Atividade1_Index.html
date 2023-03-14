@@ -26,5 +26,10 @@
       <a href="{% url 'Atividade1:postPagamento' %}" style='color: inherit; text-decoration: none;'>Cadastrar</a>
     </button>
 
+    {% for valo in valor %}
+    <p>{{valo}}</p>
+    {% endfor %}
+
+
   </body>
 </html>

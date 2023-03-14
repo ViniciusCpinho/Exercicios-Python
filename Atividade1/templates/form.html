@@ -30,11 +30,15 @@
               <label for='gerente'>Gerente</label>
               <input type="radio" name='categoria' id='gerente' value='Gerente'>
               <label for='operario'>Operário</label>
-              <input type="radio" id='operario' name='categoria'  value='Operário'>
+              <input type="radio" id='operario' name='categoria'  value='Operario'>
           </div>
           <input type="submit" value="Enviar" style='border: none; background-color: lightgray; width: 307px; padding: 10px; margin: 10px;'>
       </form>
 
+      {% if {{error}} %}
+      {{error}}
+      {% else %}
+      {% endif %}
     {% comment %} final modal region {% endcomment %}
   </body>
 </html>
