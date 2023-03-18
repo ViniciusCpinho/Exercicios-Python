@@ -33,7 +33,17 @@
       <td>{{ respostas.C.Noturno }}</td>
     </tr>
   </table>
-  
+  <h1>Análise de elevadores</h1>
+	<h2>Elevador mais utilizado e em que período se concentra o maior fluxo:</h2>
+	<p>O elevador mais utilizado é o {{ respostas.Elevador_mais_utilizado }}</p>
+	<h2>Período mais utilizado de todos:</h2>
+	<p>O período mais utilizado de todos é {{  respostas.Periodo_mais_utilizado }}.</p>
+	
+	<h2>Diferença percentual entre o mais usado dos horários e o menos usado:</h2>
+	<p>A diferença percentual entre o horário mais utilizado {{  respostas.Diferenca_percentual }}%.</p>  
+  <span>---------------------------------------------------------------</span><br>
+
   <button><a href="{% url 'Atividade2:postElevadores' %}">Form postElevadores</a></button>
+
 </body>
 </html>
