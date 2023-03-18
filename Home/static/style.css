@@ -1,0 +1,62 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.gerenciador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gerenciador-container{
+    margin: 40px 0px;
+    background-image: linear-gradient(180deg,#0269ca,#015db3,#014c92,#013d75,#003d75);
+    border-radius: 2rem;
+    box-shadow: 9px 18px 24px 1px rgba(145,145,145,1);
+    font-family: 'Rotobo';
+}
+
+.gerenciador-title{
+    color: white;
+    margin: 50px 50px;
+    font-size: 30px;
+}
+
+.gerenciador-subtitle{
+    color: white;
+    text-align: center;
+    font-size: 17px;
+}
+
+.gerenciador-lista-container{
+    list-style: none;
+    padding: 30px;
+}
+
+.gerenciador-lista{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: rgb(209, 209, 209);
+    padding: 5px 10px 5px 5px; 
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.gerenciador-text{
+    font-weight: 500;
+}
+
+.gerenciador-botao{
+    border: none; 
+    background-color: whitesmoke; 
+    border-radius: .3rem; 
+    padding: 15px;
+    margin: 5px 0px;
+}
+
+
+
+
