@@ -22,23 +22,25 @@ def postPagamento(request):
         except (ValueError, AssertionError):
             return render(request, 'form.html', {'error': 'Parâmetros inválidos'})
 
-        # valorTotal:float; valorHora:float 
+        # valorTotal:float; valorHora:float
         valor = verificacaoPagamento(quantidade_horas, categoria, turno)
+        valorTotal = valor[0]
+        valorHora = valor[1]
 
         # valorTotal = valor[0]
         # valorHora = valor[1]
-        
+
         Pagamento.objects.create(
             nome=nome,
             quantidade_horas=quantidade_horas,
             turno=turno,
             categoria=categoria,
-            valorTotal=0,
-            valorHora=0,
+            valorTotal=valorTotal,
+            valorHora=valorHora,
         )
-        
+
         pagamento = Pagamento.objects.all()
-        return render(request, 'Atividade1_index.html', {'pagamentos': pagamento, 'valor':valor})
+        return render(request, 'Atividade1_index.html', {'pagamentos': pagamento, 'valo': valor})
     else:
         return render(request, 'form.html')
 

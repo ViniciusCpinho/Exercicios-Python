@@ -7,11 +7,11 @@
     <title>Document</title>
   </head>
   <body>
-        <form action="{% url 'Atividade2:updateElevadores' %}" method="post">
+        <form action="{% url 'Atividade2:postElevadores' %}" method="post">
           {% csrf_token %}
           <div style="display: flex; flex-direction: column; margin: 10px;">
             <label for="turno">O elevador que utiliza com mais frequência</label>
-            <select style='width: 307px;' name='preferido'>
+            <select style='width: 307px;' name='elevador'>
               <option value='A'>A</option>
               <option value='B'>B</option>
               <option value='C'>C</option>
@@ -19,7 +19,7 @@
         </div> 
           <div style="display: flex; flex-direction: column; margin: 10px;">
               <label for="turno">O período em que utiliza o elevador</label>
-              <select style='width: 307px;' name='periodo'>
+              <select style='width: 307px;' name='turno'>
                 <option value='Matutino'>Matutino</option>
                 <option value='Vespetino'>Vespetino</option>
                 <option value='Noturno'>Noturno</option>
@@ -27,6 +27,9 @@
           </div> 
           <input type="submit" value="Enviar" style='border: none; background-color: lightgray; width: 307px; padding: 10px; margin: 10px;'>
       </form>
+
+
+      <span>{{erro}}</span>
 
     {% comment %} final modal region {% endcomment %}
   </body>
