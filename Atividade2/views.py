@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Elevadores
+from Home import views
 
 #Pega os dados do banco de dados, realiza analise dos dados e manda para o template 
 def getElevadores(request):
@@ -87,3 +88,6 @@ def analises(elevadores):
     
     # Retorna o dicionário com as análises
     return respostas
+
+def Home(request):
+    return redirect(views.Home)

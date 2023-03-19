@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Pagamento
+from Home import views
 
 #Pega os dados do banco
 def getPagamento(request):
@@ -39,8 +40,7 @@ def postPagamento(request):
             valorHora=valorHora,
         )
 
-        pagamento = Pagamento.objects.all()
-        return render(request, 'Atividade1_index.html', {'pagamentos': pagamento, 'valo': valor})
+        return redirect('Atividade1:getPagamento')
     
     #Manda novamente para o template
     else:
@@ -62,6 +62,13 @@ def verificacaoPagamento(quantidade_horas, categoria, turno):
         valorHora = (1320 - 9/100) * 1.0
         valorTotal = valorHora * quantidade_horas
         return (valorTotal, valorHora)
+    
+    if categoria == 'Operario' and (turno == 'Matutino' or turno == 'Vespetino'):
+        valorHora = (1320 - 14/100) * 1.0
+        valorTotal = valorHora * quantidade_horas
+        return (valorTotal, valorHora)
 
-    #Retorna uma tupla vazia caso nenhuma das condições acima seja satisfeita
-    return ()
+
+
+def Home(request):
+    return redirect(views.Home)

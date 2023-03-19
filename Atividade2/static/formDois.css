@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+
+
+  label {
+    color: #666666;
+  }
+
+  select{
+    width: 319px;
+  }
+  
+  input[type="text"],
+  select {
+    width: 300px;
+    background-color: #4d4d4d;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"]:focus,
+  select:focus {
+    outline: none;
+  }
+  
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  input[type="submit"] {
+    background-color: #0269ca;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #015db3;
+  }
+  
+  select option {
+    background-color: #4d4d4d;
+  }
+  
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #666666;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #666666;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #666666;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #666666;
+  }
+  

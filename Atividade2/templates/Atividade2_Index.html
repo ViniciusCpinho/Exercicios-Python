@@ -1,12 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href='{% static 'AtividadeDois.css' %}'/>
   <title>Document</title>
 </head>
 <body>
+  <div class='barra'>
+    <a class='' href="{% url 'Atividade2:Home' %}" style='color: inherit; text-decoration: none;'>
+      Home
+    </a>
+    <a style='color: inherit; text-decoration: none;' href="{% url 'Atividade2:postElevadores' %}">
+      Cadastrar
+    </a>
+    </div>
   <table>
     <tr>
       <th></th>
@@ -41,9 +51,5 @@
 	
 	<h2>Diferença percentual entre o mais usado dos horários e o menos usado:</h2>
 	<p>A diferença percentual entre o horário mais utilizado {{  respostas.Diferenca_percentual }}%.</p>  
-  <span>---------------------------------------------------------------</span><br>
-
-  <button><a href="{% url 'Atividade2:postElevadores' %}">Form postElevadores</a></button>
-
 </body>
 </html>
