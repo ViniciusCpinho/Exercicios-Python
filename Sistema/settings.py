@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'Atividade1',
     'Atividade2',
+    'Atividade3',
     'Home'
 ]
 

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% comment %} <div class='barra'>
+        <a class='' href="{% url 'Atividade3:Home' %}" style='color: inherit; text-decoration: none;'>
+          Home
+        </a>
+        <a style='color: inherit; text-decoration: none;' href="{% url 'Atividade3:post' %}">
+          Cadastrar
+        </a>
+    </div> {% endcomment %}
+
+    <div>
+        {% if files == 'Não há arquivos registrados' %}
+            {{files}}
+
+        {% else %}
+            {% for aluno in files %}
+            <div>
+                {{aluno}}
+            </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+    <form action="{% url 'Atividade3:post_arquivo'%}" method="post">
+        {% csrf_token %}
+        <div>
+            <input type="text" placeholder='Nome' name='nome' required>
+        </div>
+        <div>
+            <input type="text" placeholder='Primeira Nota' name='nota_um' required>
+        </div>
+        <div>
+            <input type="text" placeholder='Segunda Nota' name='nota_dois' required>
+        </div>
+        <div>
+            <input type="text" placeholder='Terceira Nota' name='nota_tres' required>
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+
+
+</body>
+</html>

@@ -83,7 +83,7 @@ def analises(elevadores):
     
     # Adiciona as análises das questões c, d e e ao dicionário respostas
     respostas['Elevador_mais_utilizado'] = elevador_mais_utilizado
-    respostas['Periodo _mais_utilizado'] = periodo_mais_utilizado
+    respostas['Periodo_mais_utilizado'] = periodo_mais_utilizado
     respostas['Diferenca_percentual'] = diferenca_percentual
     
     # Retorna o dicionário com as análises
