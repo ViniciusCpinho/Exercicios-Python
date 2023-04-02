@@ -1,7 +1,7 @@
 ﻿# Exercicios-Python
 
-Só avisando que provavelmente tudo não está funcionando ainda, tenho que pensar nas lógicas, fiz no final do dia e ainda estava entendendo como é que funcionava o crud no python junto com o padrão do MTV. Agora tô bem esperto nisso, só tenho que ter mais um tempinho para rever a lógica. Confesso que foi até que divertido :)
+Gerenciador de Atividades
 
-Espero que por ter usado o banco de dados e tals eu não perca tanta nota :(
+O projeto tem como objetivo gerenciar assim como executar as atividades propostas durante o segundo sementre do curso de Engenharia de Computação da Fastech - Sinop realizados no primeiro semestre do ano de 2023.
 
 Att. Vinicius Luz
