@@ -1,6 +1,7 @@
 import os
 from django.shortcuts import render, redirect
 from .models import File
+from Home import views
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.join(APP_DIR, 'Files')
@@ -47,4 +48,7 @@ def post_arquivo(request):
         
         return redirect('Atividade3:get_arquivo')
     else:
-        return redirect('Atividade3_Index.html')
+        return redirect('Atividade3:get_arquivo')
+
+def Home(request):
+    return redirect(views.Home)

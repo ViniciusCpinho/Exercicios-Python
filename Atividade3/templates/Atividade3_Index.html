@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static 'AtividadeTres.css' %}'>
     <title>Document</title>
 </head>
 <body>
-    {% comment %} <div class='barra'>
-        <a class='' href="{% url 'Atividade3:Home' %}" style='color: inherit; text-decoration: none;'>
+    <div class='barra-atividade-tres'>
+        <a class='' href="{% url 'Atividade3:home' %}" style='color: inherit; text-decoration: none;'>
           Home
         </a>
-        <a style='color: inherit; text-decoration: none;' href="{% url 'Atividade3:post' %}">
+        <a style='color: inherit; text-decoration: none;' href="{% url 'Atividade3:post_arquivo' %}">
           Cadastrar
         </a>
-    </div> {% endcomment %}
+    </div>
 
     <div>
         {% if files == 'Não há arquivos registrados' %}
@@ -24,7 +25,10 @@
         {% else %}
             {% for aluno in files %}
             <div>
-                {{aluno}}
+                {{aluno.nome}}
+                {{aluno.nota_um}}
+                {{aluno.nota_dois}}
+                {{aluno.nota_tres}}
             </div>
             {% endfor %}
         {% endif %}
