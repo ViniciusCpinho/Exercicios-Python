@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Atividade1',
     'Atividade2',
     'Atividade3',
+    'Prova',
     'Home'
 ]
 

@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendimentos</title>
+</head>
+<body>
+    {{ dados }}
+
+    <form method="post" action="{% url 'Prova:informar' %}">
+        {% csrf_token %}
+        <input type="text" name="mes" placeholder='mes'>
+        <input type="text" name="ano" placeholder='ano'>
+        <input type="text" placeholder='tipo' name='tipo'>
+        <input type="text" name="rendimento" placeholder='rendimento'>
+        <input type="submit" value="Salvar">
+    </form>
+
+    <form action="{% url 'Prova:atualizar'%}">
+        {% csrf_token %}
+        <input type="text" placeholder='mes_antigo' name='mes_antigo'>
+        <input type="text" placeholder='ano_antigo' name='ano_antigo'>
+        <input type="text" placeholder='mes_novo' name='mes_novo'>
+        <input type="text" placeholder='ano_novo' name='ano_novo'>
+        <input type="text" placeholder='tipo_novo' name='tipo_novo'>
+        <input type="text" placeholder='quantidade' name='quantidade'>
+        <input type="submit" value="Salvar">
+    </form>
+
+    <form action="{% url 'Prova:excluir' %}">
+        {% csrf_token %}
+        <input type="text" placeholder='mes' name='mes'>
+        <input type="text" placeholder='ano' name='ano'>
+        <input type="text" placeholder='tipo' name='tipo'>
+        <input type="submit" value="Salvar">
+    </form>
+    
+</body>
+</html>
