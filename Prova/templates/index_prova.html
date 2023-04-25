@@ -9,35 +9,59 @@
     <title>Rendimentos</title>
 </head>
 <body>
-    {{ dados }}
 
     <form method="post" action="{% url 'Prova:informar' %}">
         {% csrf_token %}
-        <input type="text" name="mes" placeholder='mes'>
-        <input type="text" name="ano" placeholder='ano'>
-        <input type="text" placeholder='tipo' name='tipo'>
-        <input type="text" name="rendimento" placeholder='rendimento'>
+        <input type="text" name="mes" placeholder='Mês'>
+        <input type="text" name="ano" placeholder='Ano'>
+        <input type="text" name="salario" placeholder='Salario'>
+        <input type="text" name="despesa" placeholder='Despesa'>
         <input type="submit" value="Salvar">
     </form>
 
-    <form action="{% url 'Prova:atualizar'%}">
+    <form method='post' action="{% url 'Prova:atualizar'%}">
         {% csrf_token %}
-        <input type="text" placeholder='mes_antigo' name='mes_antigo'>
-        <input type="text" placeholder='ano_antigo' name='ano_antigo'>
-        <input type="text" placeholder='mes_novo' name='mes_novo'>
-        <input type="text" placeholder='ano_novo' name='ano_novo'>
-        <input type="text" placeholder='tipo_novo' name='tipo_novo'>
-        <input type="text" placeholder='quantidade' name='quantidade'>
-        <input type="submit" value="Salvar">
+        <input type="text" placeholder='Mês Antigo' name='mes_antigo'>
+        <input type="text" placeholder='Mês Antigo' name='ano_antigo'>
+        <input type="text" placeholder='Ano Novo' name='mes_novo'>
+        <input type="text" placeholder='Ano Novo' name='ano_novo'>
+        <input type="text" placeholder='Tipo: Despesa / Salario' name='tipo_novo'>
+        <input type="text" placeholder='Valor' name='quantidade'>
+        <input type="submit" value="Salvar Edição">
     </form>
 
-    <form action="{% url 'Prova:excluir' %}">
+    <form method='post' action="{% url 'Prova:excluir' %}">
         {% csrf_token %}
-        <input type="text" placeholder='mes' name='mes'>
-        <input type="text" placeholder='ano' name='ano'>
-        <input type="text" placeholder='tipo' name='tipo'>
-        <input type="submit" value="Salvar">
+        <input type="text" placeholder='Mês' name='mes'>
+        <input type="text" placeholder='Ano' name='ano'>
+        <input type="submit" value="Excluir">
     </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Mês</th>
+                <th>Ano</th>
+                <th>Salário</th>
+                <th>Despesa</th>
+                <th>Investimento</th>
+                <th>Rendimento</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dado in dados %}
+                <tr>
+                    <td>{{ dado.mes }}</td>
+                    <td>{{ dado.ano }}</td>
+                    <td>{{ dado.salario }}</td>
+                    <td>{{ dado.despesa }}</td>
+                    <td>{{ dado.investimento }}</td>
+                    <td>{{ dado.rendimento }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
     
 </body>
 </html>
