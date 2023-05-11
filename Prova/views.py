@@ -21,6 +21,7 @@ def listar(request):
     try:
         with open(FILE_PATH, 'r') as f:
             reader = csv.reader(f, delimiter=' ')
+            numLine = len(reader)
             data = [{
                 'mes': row[0],
                 'ano': row[1],
@@ -28,7 +29,7 @@ def listar(request):
                 'despesa': row[3],
                 'saldo': row[4],
                 'investimento': row[5],
-                'rendimento': 'Bateu a meta' if int(row[4]) == int(row[2]) * 0.1 * len(reader) else 'Não bateu a meta'
+                'rendimento': 'Bateu a meta' if int(row[4]) == int(row[2]) * 0.1 * numLine else 'Não bateu a meta'
             } for row in reader]
             return render(request, 'index_prova.html', {'dados':data})
     except FileNotFoundError:
