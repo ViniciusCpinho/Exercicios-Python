@@ -21,7 +21,7 @@ def listar(request):
     try:
         with open(FILE_PATH, 'r') as f:
             reader = csv.reader(f, delimiter=' ')
-            numLine = len(reader)
+            numLine = sum(1 for row in reader)
             data = [{
                 'mes': row[0],
                 'ano': row[1],
