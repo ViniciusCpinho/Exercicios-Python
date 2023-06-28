@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'Login.css' %}">
+    <title>BrisaEventos - Login e cadastro</title>
+
+
+    <script>
+      function mudarLoginCadastro(sumir, aparecer){
+        var divSumir = document.getElementById(sumir) 
+        var divAparecer = document.getElementById(aparecer)
+        divSumir.classList.add("hidden")
+        divAparecer.classList.remove("hidden")}
+    </script>
+
+</head>
+<body>
+  {% comment %} <header class='header'>
+    {% comment %} <img class='logo-image' src="../static/image/logo.png" alt="">
+      <nav class='nav'>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'criar_eventos' %}">Eventos</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+      </nav>
+    </header> {% endcomment %}
+    {% comment %} <img class= "sidebar" src="../static/image/login-image.jpg" alt="">    {% endcomment %}
+    <section class="content">
+        <div id="login">
+          <h1>Login</h1>
+          <form method='post' action="{%  url 'home' %}">
+            {% csrf_token %}
+            <input type="text" placeholder="Usuário" required>
+            <input type="password" placeholder="Senha" required>
+            <button type="submit" >Entrar</button>
+          </form>
+          <p>Caso ainda não tenha uma conta</p>
+          <button type="button" onclick="mudarLoginCadastro('login','cadastro')"> Criar conta </button>
+        </div>
+
+        <div id="cadastro" class='hidden'>
+          <h1>Cadastro</h1>
+          <form method="post" action="{% url 'home'%}">
+            {% csrf_token %}
+            <input id="username" type="text" placeholder="Nome de Usuário" required>
+            <input id="email" type="text" placeholder="Email" required>
+            <input id="password" type="password" placeholder="Senha" required>
+            <input type="submit" value="Cadastrar" class="content">
+          </form>
+          <p>Caso já tenha uma conta</p>
+          <button type="button" onclick="mudarLoginCadastro('cadastro','login')"> Logar </button>
+        </div>
+
+
+    </section>  
+    
+        
+      <footer class="footer">
+        <p>&copy; 2023 BrisaEventos. Todos os direitos reservados.</p>
+      </footer>
+</body>
+
+</html>
